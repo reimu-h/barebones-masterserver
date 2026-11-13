@@ -49,9 +49,11 @@ public class EmilsTestServer : MonoBehaviour {
     {
         _clients = new List<IPeer>();
 
+#if !UNITY_WEBGL || UNITY_EDITOR
         if (useWs)
             _server = new ServerSocketWs();
         else
+#endif
             _server = new ServerSocketUnet();
 
         _server.Connected += ClientConnected;

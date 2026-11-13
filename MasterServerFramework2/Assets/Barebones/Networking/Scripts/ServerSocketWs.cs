@@ -1,7 +1,8 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Barebones.Networking;
 using UnityEngine;
+#if !UNITY_WEBGL || UNITY_EDITOR
 using WebSocketSharp;
 using WebSocketSharp.Server;
 
@@ -218,3 +219,4 @@ namespace Barebones.Networking
         }
     }
 }
+#endif

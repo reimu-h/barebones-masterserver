@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Barebones.Logging;
@@ -150,7 +150,11 @@ namespace Barebones.MasterServer
             /// <summary>
             /// Factory, used to create server sockets
             /// </summary>
+#if !UNITY_WEBGL || UNITY_EDITOR
             public Func<IServerSocket> ServerSocketFactory = () => new ServerSocketWs();
+#else
+            public Func<IServerSocket> ServerSocketFactory = null;
+#endif
 
             /// <summary>
             /// Message factory

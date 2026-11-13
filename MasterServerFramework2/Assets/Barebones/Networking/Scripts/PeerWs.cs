@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Barebones.Networking;
@@ -73,6 +73,7 @@ namespace Barebones.Networking
         }
     }
 
+#if !UNITY_WEBGL || UNITY_EDITOR
     public class PeerWsServer : BasePeer
     {
         private readonly ServerSocketWs.WsService _session;
@@ -153,4 +154,5 @@ namespace Barebones.Networking
             _session.Disconnect();
         }
     }
+#endif
 }
